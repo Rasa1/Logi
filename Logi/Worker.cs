@@ -13,14 +13,14 @@ namespace Logi
 
         }
 
-        public String pesel;
-        public String nazwisko;
-        public String imie;
-        public String stanowisko;
+        public string pesel;
+        public string nazwisko;
+        public string imie;
+        public string stanowisko;
         public int pensja;
         public int etat;
 
-        public Worker(String pesel, String nazwisko, String imie, String stanowisko, int pensja, int etat)
+        public Worker(string pesel, string nazwisko, string imie, string stanowisko, int pensja, int etat)
         {
             this.etat = etat;
             this.imie = imie;
