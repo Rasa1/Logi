@@ -20,6 +20,9 @@ namespace Logi
         public int pensja;
         public int etat;
 
+
+
+
         public Worker(string pesel, string nazwisko, string imie, string stanowisko, int pensja, int etat)
         {
             this.etat = etat;
