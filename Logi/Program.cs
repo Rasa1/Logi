@@ -21,7 +21,7 @@ namespace Logi
 
         List<Entry> makeEntrys(List<Entry> entrys,List<String>personel)
         {
-            
+
             return entrys;
         }
     }
