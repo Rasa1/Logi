@@ -74,7 +74,7 @@ namespace Logi
             else if (this.stanowisko == "programista")
             {
                 etat = rnd.Next(24, 40);
-                this.pensja = rnd.Next(3000,8000)*100;
+                this.pensja = rnd.Next(30,80)*100;
             }
             else if (this.stanowisko == "stazysta")
             {
