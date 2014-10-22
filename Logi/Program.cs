@@ -15,6 +15,7 @@ namespace Logi
             List<Wyplaty> wyplaty = new List<Wyplaty>();
             List<Project> projekty = new List<Project>();
             List<Entry> entrys = new List<Entry>();
+            List<Klient> klienci = new List<Klient>();
 
             List<podProjekt> podprojekty = new List<podProjekt>();
 
@@ -25,6 +26,8 @@ namespace Logi
             zespoly(workers, teams);
 
             createProjekty(projekty, teams, podprojekty);
+
+            createKlienci(klienci,projekty);
 
         }
 
@@ -90,7 +93,7 @@ namespace Logi
                     podprojekt(podprojekty, zespol, start, end, nazwa);
 
                     start = end;
-                    span = new DateTime(14, 12, 30) - start;
+                    span = new DateTime(2014, 12, 30) - start;
 
                 } while (span.Days > 49);
             }
@@ -102,6 +105,7 @@ namespace Logi
             Random rnd = new Random();
             foreach (Worker pracownik in team)
             {
+                
                 DateTime startpod = new DateTime(start.Year, start.Month, start.Day);
                 TimeSpan span = end - start;
                 do
@@ -114,17 +118,36 @@ namespace Logi
                     }
                     else { endpod = end; }
                     string pesel = pracownik.pesel;
-                    string nazwa = pesel + startpod.Year.ToString() + startpod.Month.ToString() + startpod.Day.ToString();
+                    string nazwa = pesel+"num" + startpod.Year.ToString() + startpod.Month.ToString() + startpod.Day.ToString();
                     //string projekt;
                     string opis = nazwa.GetHashCode().ToString();
                     podprojekty.Add(new podProjekt(startpod, endpod, pesel, nazwa, projekt, opis));
 
                     startpod = endpod;
-                    span = end - start;
+                    span = end - startpod;
                 } while (span.Days > 4);
 
             }
         }
+        
+        static void createKlienci(List<Klient> klienci, List<Project> projekty)
+        {
+            Random rnd = new Random();
+            int ilosc=rnd.Next(1,projekty.Count);
 
+            for (int i = 0; i < ilosc; i++)
+            {
+                string nazwa = "klient" + i.ToString();
+                string adres = "adres" + i.ToString();
+                klienci.Add(new Klient(nazwa, adres));
+            }
+
+            for (int i = 0; i < projekty.Count; i++)
+            {
+                if (i < ilosc) projekty[i].klient = klienci[i].nazwa;
+                else projekty[i].klient = klienci[rnd.Next(klienci.Count)].nazwa;
+            }
+        }
+        
     }
 }
