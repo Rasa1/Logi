@@ -12,14 +12,16 @@ namespace Logi
         public DateTime ukoncz;
         public string pesel;
         public string nazwa;
+        public string projekt;
         public string opis;
 
-        podProjekt(DateTime przydziel, DateTime ukoncz, string pesel, string nazwa, string opis)
+        public podProjekt(DateTime przydziel, DateTime ukoncz, string pesel, string nazwa,string projekt, string opis)
         {
             this.przydziel = przydziel;
             this.ukoncz = ukoncz;
             this.pesel = pesel;
             this.nazwa = nazwa;
+            this.projekt = projekt;
             this.opis = opis;
         }
 
