@@ -107,7 +107,7 @@ namespace Logi
                     ile_godzin_w_miesiacu+=ile_godzin;
                     int o_ktorej_przyszedl = rnd.Next(6,22-ile_godzin);
                     int o_ktorej_wyszedl = o_ktorej_przyszedl+ile_godzin;
-                    logi.Add(new Entry(this.pesel,new DateTime(2014,miesiac,dzien,o_ktorej_przyszedl,0,0),new DateTime(2014,miesiac,dzien,o_ktorej_wyszedl,0,0));
+                    logi.Add(new Entry(this.pesel,new DateTime(2014,miesiac,dzien,o_ktorej_przyszedl,0,0),new DateTime(2014,miesiac,dzien,o_ktorej_wyszedl,0,0)));
                 }
                 int godziny = ile_godzin_w_miesiacu;
                 int premia = rnd.Next(0, 500);

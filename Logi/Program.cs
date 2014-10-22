@@ -18,7 +18,7 @@ namespace Logi
             int ilosc=Convert.ToInt32(Console.ReadLine());
             
             for (int i = 0; i < ilosc; i++)
-                workers.Add(new Worker(workers,wyplaty));
+                workers.Add(new Worker(workers,wyplaty,logi));
             zespoly(workers, teams);
            
 
