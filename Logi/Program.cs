@@ -26,7 +26,16 @@ namespace Logi
                 workers.Add(new Worker(workers, wyplaty,entrys));
             zespoly(workers, teams);
 
-            createProjekty(projekty, teams, podprojekty);
+            int sYear = Convert.ToInt32(Console.ReadLine());
+            int sMonth = Convert.ToInt32(Console.ReadLine());
+            int sDay = Convert.ToInt32(Console.ReadLine());
+            DateTime start = new DateTime(sYear,sMonth,sDay);
+            int eYear = Convert.ToInt32(Console.ReadLine());
+            int eMonth = Convert.ToInt32(Console.ReadLine());
+            int eDay = Convert.ToInt32(Console.ReadLine());
+            DateTime end = new DateTime(eYear, eMonth, eDay);
+            
+            createProjekty(projekty, teams, podprojekty,start,end);
 
             createKlienci(klienci,projekty);
 
@@ -90,22 +99,27 @@ namespace Logi
                 }
             }
         }
-        static void createProjekty(List<Project> projekty, List<List<Worker>> teams, List<podProjekt> podprojekty)
+        static void createProjekty(List<Project> projekty, List<List<Worker>> teams, List<podProjekt> podprojekty, DateTime starts,DateTime endit)
         {
             Random rnd = new Random();
             foreach (List<Worker> zespol in teams)
             {
-                DateTime start = new DateTime(2014, 1, 1);
+                DateTime start = new DateTime(starts.Year, starts.Month, starts.Day);
 
-                TimeSpan span = new DateTime(2014, 12, 30) - start;
+                TimeSpan span = endit - start;
+                bool stop = false;
 
-                do
+                while (!stop)
                 {
 
                     int dni = rnd.Next(1, 7) * 7;
                     DateTime end = new DateTime(start.Year, start.Month, start.Day);
-                    if (span.Days > 49) end=end.AddDays(dni);
-                    else end = new DateTime(2014, 12, 30);
+                    if (span.Days > 49) end = end.AddDays(dni);
+                    else
+                    {
+                        end = endit;
+                        stop=true;
+                    }
 
                     int wartosc_zamowienia = rnd.Next(100, 1000) * 100;
                     string nazwa = "projekt" + zespol[0].pesel + "num" + start.Year.ToString()+"-"+start.Month.ToString()+"-"+start.Day.ToString();
@@ -130,9 +144,9 @@ namespace Logi
                     podprojekt(podprojekty, zespol, start, end, nazwa);
 
                     start = end;
-                    span = new DateTime(2014, 12, 30) - start;
+                    span = endit - start;
 
-                } while (span.Days > 49);
+                } 
             }
 
         }
@@ -145,7 +159,8 @@ namespace Logi
                 
                 DateTime startpod = new DateTime(start.Year, start.Month, start.Day);
                 TimeSpan span = end - start;
-                do
+                bool stop = false;
+                while (!stop)
                 {
                     DateTime endpod = new DateTime(startpod.Year, startpod.Month, startpod.Day);
                     if (span.Days > 4)
@@ -153,7 +168,10 @@ namespace Logi
                         int dni = rnd.Next(1, 4);
                         endpod=endpod.AddDays(dni);
                     }
-                    else { endpod = end; }
+                    else { 
+                        endpod = end;
+                        stop = true;
+                    }
                     string pesel = pracownik.pesel;
                     string nazwa = pesel + "num" + startpod.Year.ToString() + "-" + startpod.Month.ToString() + "-" + startpod.Day.ToString();
                     //string projekt;
@@ -162,7 +180,7 @@ namespace Logi
 
                     startpod = endpod;
                     span = end - startpod;
-                } while (span.Days > 4);
+                } 
 
             }
         }

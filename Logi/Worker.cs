@@ -37,7 +37,7 @@ namespace Logi
             imiona.Add("Marcin");
             imiona.Add("Krzysztof");
             imiona.Add("Tomasz");
-            imiona.Add("Rafał");
+            imiona.Add("Rafal");
             imiona.Add("Wojciech");
             imiona.Add("Kamil");
             imiona.Add("Agnieszka");
