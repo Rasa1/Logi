@@ -8,7 +8,7 @@ namespace Logi
 {
     class Klient
     {
-        Klient()
+        public Klient()
         {
 
         }

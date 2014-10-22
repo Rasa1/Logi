@@ -53,6 +53,17 @@ namespace Logi
             return (this.exitDate.Equals(other.exitDate) && this.enterDate.Equals(other.enterDate));
         }
 
+        public string ToString(List<Entry> logi)
+        {
+            string s = "";
+            foreach (Entry log in logi)
+            {
+                s += log.pesel + ",";
+                s += log.enterDate + ",";
+                s += log.exitDate + Environment.NewLine;
+            }
+            return s;
+        }
         
     }
 }

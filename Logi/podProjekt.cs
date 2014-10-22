@@ -8,6 +8,11 @@ namespace Logi
 {
     class podProjekt
     {
+        public podProjekt()
+        {
+
+        }
+
         public DateTime przydziel;
         public DateTime ukoncz;
         public string pesel;
@@ -23,6 +28,22 @@ namespace Logi
             this.nazwa = nazwa;
             this.projekt = projekt;
             this.opis = opis;
+        }
+
+        public string ToString(List<podProjekt> podprojekty)
+        {
+            string s = "";
+            foreach (podProjekt podprojekt in podprojekty)
+            {
+                s += podprojekt.pesel + ",";
+                s += podprojekt.projekt + ",";
+                s += podprojekt.nazwa + ",";
+                s += podprojekt.przydziel.Year + "-" + podprojekt.przydziel.Month + "-" + podprojekt.przydziel.Day + ",";
+                s += podprojekt.ukoncz.Year + "-" + podprojekt.ukoncz.Month + "-" + podprojekt.ukoncz.Day + ",";
+                s += podprojekt.opis;
+                s += Environment.NewLine;
+            }
+            return s;
         }
 
     }

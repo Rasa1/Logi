@@ -29,6 +29,13 @@ namespace Logi
 
             createKlienci(klienci,projekty);
 
+
+            string stringpracownicy = new Worker().ToString(workers);
+            string stringwypl = new Wyplaty().ToString(wyplaty);
+            string stringproj = new Project().ToString(projekty);
+            string stringpodpr = new podProjekt().ToString(podprojekty);
+            string stringklij = new Klient().ToString(klienci);
+            string stringlog = new Entry().ToString(entrys);
         }
 
         static void zespoly(List<Worker> workers, List<List<Worker>> teams)
