@@ -50,6 +50,22 @@ namespace Logi
             if (other == null) return false;
             return (this.nazwa.Equals(other.nazwa));
         }
+        public string ToString(List<Project> projekty)
+        {
+            string s = "";
+            foreach (Project projekt in projekty)
+            {
+                s += projekt.nazwa + ",";
+                s += projekt.klient + ",";
+                s += projekt.pesel + ",";
+                s += projekt.technologia + ",";
+                s += projekt.wartosc_zamowienia + ",";
+                s += projekt.data_zamowienia + ",";
+                s += projekt.data_zakonczenia + ",";
+                s += projekt.opis + Environment.NewLine;
+            }
+            return s;
+        }
     }
 
     
