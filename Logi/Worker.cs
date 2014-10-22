@@ -64,9 +64,9 @@ namespace Logi
             nazwiska.Add("Zabawa");
             nazwisko = nazwiska[rnd.Next(nazwiska.Count)];
 
-            this.stanowisko = (rnd.Next(100) > 85) ? "team leader" : ((rnd.Next(100) > 80) ?  "stazysta" :  "teamleader");
+            this.stanowisko = (rnd.Next(100) > 85) ? "teamleader" : ((rnd.Next(100) > 80) ?  "stazysta" :  "programista");
 
-            if (this.stanowisko == "team leader")
+            if (this.stanowisko == "teamleader")
             {
                 etat = 40;
                 pensja = rnd.Next(50, 80)*100;
@@ -99,7 +99,7 @@ namespace Logi
                 int godziny = this.etat + rnd.Next(-5, 5);
                 int premia = rnd.Next(0, 500);
                 int wyplata = this.pensja + premia;
-                int wolne = dni_wolne[miesiac];
+                int wolne = dni_wolne[miesiac-1];
                 int urlop = rnd.Next(0, 4);
                 string pesel = this.pesel;
                 int podatek = wyplata / 3;

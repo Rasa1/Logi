@@ -10,19 +10,19 @@ namespace Logi
     {
         static void Main(string[] args)
         {
-            List<string> personel = new List<string>();
-            for (int i = 0; i < 20; i++)
-                personel.Add(RandomData.randPesel());
+            int ilosc=Convert.ToInt32(Console.ReadLine());
+            List<Worker> workers = new List<Worker>();
+            List<Wyplaty> wyplaty=new List<Wyplaty>();
+            for (int i = 0; i < ilosc; i++)
+                workers.Add(new Worker(workers,wyplaty));
            
-            List<Entry> entrys = new List<Entry>();
-            for (int i = 0; i < 20; i++)
-                personel.Add(RandomData.randPesel());
-        }
 
+        }
+           /*
         List<Entry> makeEntrys(List<Entry> entrys,List<String>personel)
         {
 
             return entrys;
-        }
+        }*/
     }
 }
