@@ -14,13 +14,14 @@ namespace Logi
             List<Worker> workers = new List<Worker>();
             List<Wyplaty> wyplaty = new List<Wyplaty>();
             List<Project> projekty = new List<Project>();
+            List<Entry> entrys = new List<Entry>();
 
             List<podProjekt> podprojekty = new List<podProjekt>();
 
             int ilosc = Convert.ToInt32(Console.ReadLine());
 
             for (int i = 0; i < ilosc; i++)
-                workers.Add(new Worker(workers, wyplaty));
+                workers.Add(new Worker(workers, wyplaty,entrys));
             zespoly(workers, teams);
 
             createProjekty(projekty, teams, podprojekty);
