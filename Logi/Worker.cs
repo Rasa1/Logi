@@ -23,7 +23,7 @@ namespace Logi
 
 
 
-        public Worker(List<Worker> workers)
+        public Worker(List<Worker> workers,List<Wyplaty> wyplaty)
         {
             Random rnd = new Random();
 
@@ -86,6 +86,26 @@ namespace Logi
             {
                 this.pesel = RandomData.randPesel();
             } while (workers.Exists(x => x.pesel == this.pesel));
+            this.setWyplaty(wyplaty);
+        }
+
+        public void setWyplaty(List<Wyplaty> wyplaty)
+        {
+            int[] dni_wolne = new int[] { 2, 1, 1, 2, 0, 1, 0, 0, 2, 1, 1, 3 };
+            for (int miesiac = 1; miesiac <= 12; miesiac++)
+            {
+                Random rnd = new Random();
+
+                int godziny = this.etat + rnd.Next(-5, 5);
+                int premia = rnd.Next(0, 500);
+                int wyplata = this.pensja + premia;
+                int wolne = dni_wolne[miesiac];
+                int urlop = rnd.Next(0, 4);
+                string pesel = this.pesel;
+                int podatek = wyplata / 3;
+
+                wyplaty.Add(new Wyplaty(godziny,premia,miesiac,2014,wyplata,wolne,urlop,pesel,podatek));
+            }
         }
 
         public override bool Equals(object obj)
