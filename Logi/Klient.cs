@@ -59,6 +59,17 @@ namespace Logi
 
             }
         }
+        public string ToString(List<Klient> klienci)
+        {
+            string s = "";
+            foreach (Klient klient in klienci)
+            {
+                s += klient.nazwa + ",";
+                s += klient.adres + ",";
+                s += klient.nr_telefonu + Environment.NewLine;
+            }
+            return s;
+        }
 
     }
 }
