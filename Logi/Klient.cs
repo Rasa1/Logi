@@ -17,12 +17,13 @@ namespace Logi
         public string nr_telefonu;
         public string adres;
 
-        Klient(string nazwa,string adres,List <Project> projekty)
+        Klient(string nazwa, string adres, List<Project> projekty, List<Worker> leaders)
         {
             Random rnd = new Random();
             this.adres = adres;
             this.nazwa = nazwa;
             this.nr_telefonu = rnd.Next(100000000,999999999).ToString();
+            genProj(projekty, leaders);
         }
 
         void genProj(List<Project> projekty,List<Worker> leaders)
