@@ -60,8 +60,8 @@ namespace Logi
                 s += projekt.pesel + ",";
                 s += projekt.technologia + ",";
                 s += projekt.wartosc_zamowienia + ",";
-                s += projekt.data_zamowienia + ",";
-                s += projekt.data_zakonczenia + ",";
+                s += projekt.data_zamowienia.ToString("yyyyMMddHHmmssffff") + ",";
+                s += projekt.data_zakonczenia.ToString("yyyyMMddHHmmssffff") + ",";
                 s += projekt.opis + Environment.NewLine;
             }
             return s;

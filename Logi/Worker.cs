@@ -93,12 +93,11 @@ namespace Logi
 
         public void setWyplaty(List<Wyplaty> wyplaty)
         {
+            Random rnd = new Random();
             int[] dni_wolne = new int[] { 2, 1, 1, 2, 0, 1, 0, 0, 2, 1, 1, 3 };
             for (int miesiac = 1; miesiac <= 12; miesiac++)
             {
-                Random rnd = new Random();
-
-                int godziny = this.etat + rnd.Next(-5, 5);
+                int godziny = this.etat*4 + rnd.Next(-8, 8);
                 int premia = rnd.Next(0, 500);
                 int wyplata = this.pensja + premia;
                 int wolne = dni_wolne[miesiac-1];
