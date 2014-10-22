@@ -10,19 +10,41 @@ namespace Logi
     {
         static void Main(string[] args)
         {
-            int ilosc=Convert.ToInt32(Console.ReadLine());
+            List<List<Worker>> teams = new List<List<Worker>>();
             List<Worker> workers = new List<Worker>();
-            List<Wyplaty> wyplaty=new List<Wyplaty>();
+            List<Wyplaty> wyplaty = new List<Wyplaty>();
+            
+            int ilosc=Convert.ToInt32(Console.ReadLine());
+            
             for (int i = 0; i < ilosc; i++)
                 workers.Add(new Worker(workers,wyplaty));
+            zespoly(workers, teams);
            
 
         }
-           /*
-        List<Entry> makeEntrys(List<Entry> entrys,List<String>personel)
+        
+        static void zespoly(List<Worker> workers, List<List<Worker>> teams)
         {
+            int lzesp=0;
+            foreach (Worker worker in workers)
+            {
+               if (worker.stanowisko == "teamleader")
+               {
+                    teams.Add(new List<Worker>());
+                    teams[teams.Count-1].Add(worker);
+                }
 
-            return entrys;
-        }*/
+            }
+            int ktory = 0;
+            foreach (Worker worker in workers)
+            {
+                if (worker.stanowisko != "teamleader")
+                {
+                    ktory=ktory % teams.Count;
+                    teams[ktory].Add(worker);
+                    ktory++;
+                }
+            }
+        }
     }
 }
