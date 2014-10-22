@@ -119,6 +119,7 @@ namespace Logi
 
                 wyplaty.Add(new Wyplaty(godziny,premia,miesiac,2014,wyplata,wolne,urlop,pesel,podatek));
             }
+            logi.Sort();
         }
 
         public string ToString(List<Worker> workers)
