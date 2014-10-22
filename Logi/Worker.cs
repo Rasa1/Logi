@@ -27,6 +27,11 @@ namespace Logi
         {
             Random rnd = new Random();
 
+            do
+            {
+                this.pesel = RandomData.randPesel();
+            } while (workers.Exists(x => x.pesel == this.pesel));
+
             List<string> imiona = new List<string>();
             imiona.Add("Adam");
             imiona.Add("Marcin");
@@ -82,10 +87,7 @@ namespace Logi
                 this.pensja = 2700;
             }
             
-            do
-            {
-                this.pesel = RandomData.randPesel();
-            } while (workers.Exists(x => x.pesel == this.pesel));
+            
             this.setWyplaty(wyplaty);
         }
 
