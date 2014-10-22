@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Logi
 {
@@ -30,12 +31,41 @@ namespace Logi
             createKlienci(klienci,projekty);
 
 
-            string stringpracownicy = new Worker().ToString(workers);
-            string stringwypl = new Wyplaty().ToString(wyplaty);
-            string stringproj = new Project().ToString(projekty);
-            string stringpodpr = new podProjekt().ToString(podprojekty);
-            string stringklij = new Klient().ToString(klienci);
-            string stringlog = new Entry().ToString(entrys);
+            string filestring = new Worker().ToString(workers);
+            string path = "wygenerowane/PRACOWNICY.csv";
+            if (!File.Exists(path))
+                File.WriteAllText(path, filestring);
+
+
+            filestring = new Wyplaty().ToString(wyplaty);
+            path = "wygenerowane/WYPLATY.csv";
+            if (!File.Exists(path))
+                File.WriteAllText(path, filestring);
+
+
+            filestring = new Project().ToString(projekty);
+            path = "wygenerowane/PROJEKTY.csv";
+            if (!File.Exists(path))
+                File.WriteAllText(path, filestring);
+
+
+            filestring = new podProjekt().ToString(podprojekty);
+            path = "wygenerowane/PODPROJEKTY.csv";
+            if (!File.Exists(path))
+                File.WriteAllText(path, filestring);
+
+
+
+            filestring = new Klient().ToString(klienci);
+            path = "wygenerowane/KLIENCI.csv";
+            if (!File.Exists(path))
+                File.WriteAllText(path, filestring);
+
+
+            filestring = new Entry().ToString(entrys);
+            path = "wygenerowane/logi.txt";
+            if (!File.Exists(path))
+                File.WriteAllText(path, filestring);
         }
 
         static void zespoly(List<Worker> workers, List<List<Worker>> teams)
