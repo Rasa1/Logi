@@ -23,7 +23,7 @@ namespace Logi
 
 
 
-        public Worker(List<Worker> workers,List<Wyplaty> wyplaty)
+        public Worker(List<Worker> workers, List<Wyplaty> wyplaty, List<Entry> logi)
         {
             Random rnd = new Random();
 
@@ -88,17 +88,28 @@ namespace Logi
             }
             
             
-            this.setWyplaty(wyplaty);
+            this.setWyplaty(wyplaty,logi);
         }
 
-        public void setWyplaty(List<Wyplaty> wyplaty)
+        public void setWyplaty(List<Wyplaty> wyplaty, List<Entry> logi)
         {
+            Random rnd = new Random();
             int[] dni_wolne = new int[] { 2, 1, 1, 2, 0, 1, 0, 0, 2, 1, 1, 3 };
+            int[] dni_w_miesiacu = new int[] {31,28,31,30,31,30,31,31,30,31,30,31};
             for (int miesiac = 1; miesiac <= 12; miesiac++)
             {
-                Random rnd = new Random();
-
-                int godziny = this.etat + rnd.Next(-5, 5);
+                int ile_godzin_w_miesiacu=0;
+                for(int dzien=1;dzien<=dni_w_miesiacu[miesiac-1];dzien++)
+                {
+                    if (rnd.Next(0,1000)>=714)
+                        continue;
+                    int ile_godzin=rnd.Next(this.etat/5-2,this.etat/5+2);
+                    ile_godzin_w_miesiacu+=ile_godzin;
+                    int o_ktorej_przyszedl = rnd.Next(6,22-ile_godzin);
+                    int o_ktorej_wyszedl = o_ktorej_przyszedl+ile_godzin;
+                    logi.Add(new Entry(this.pesel,new DateTime(2014,miesiac,dzien,o_ktorej_przyszedl,0,0),new DateTime(2014,miesiac,dzien,o_ktorej_wyszedl,0,0));
+                }
+                int godziny = ile_godzin_w_miesiacu;
                 int premia = rnd.Next(0, 500);
                 int wyplata = this.pensja + premia;
                 int wolne = dni_wolne[miesiac-1];
