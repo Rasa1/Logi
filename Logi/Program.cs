@@ -108,7 +108,7 @@ namespace Logi
                     else end = new DateTime(2014, 12, 30);
 
                     int wartosc_zamowienia = rnd.Next(100, 1000) * 100;
-                    string nazwa = "projekt" + zespol[0].pesel + "num" + start.Year.ToString()+start.Month.ToString()+start.Day.ToString();
+                    string nazwa = "projekt" + zespol[0].pesel + "num" + start.Year.ToString()+"-"+start.Month.ToString()+"-"+start.Day.ToString();
                     string opis = nazwa.GetHashCode().ToString();
                     string pesel = zespol[0].pesel;
                     string klient = "";
@@ -155,7 +155,7 @@ namespace Logi
                     }
                     else { endpod = end; }
                     string pesel = pracownik.pesel;
-                    string nazwa = pesel+"num" + startpod.Year.ToString() + startpod.Month.ToString() + startpod.Day.ToString();
+                    string nazwa = pesel + "num" + startpod.Year.ToString() + "-" + startpod.Month.ToString() + "-" + startpod.Day.ToString();
                     //string projekt;
                     string opis = nazwa.GetHashCode().ToString();
                     podprojekty.Add(new podProjekt(startpod, endpod, pesel, nazwa, projekt, opis));
