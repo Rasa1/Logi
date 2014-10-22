@@ -18,6 +18,10 @@ namespace Logi
         public string Pesel;
         public int podatek;
 
+        public Wyplaty()
+        {
+
+        }
         public Wyplaty(int godziny, int premia, int miesiac, int rok,
                         int wyplata, int wolne, int urlop, string Pesel, int podatek)
         {

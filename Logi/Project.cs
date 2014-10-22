@@ -8,7 +8,7 @@ namespace Logi
 {
     class Project : IEquatable<Project>
     {
-        Project()
+        public Project()
         {
 
         }
@@ -60,8 +60,8 @@ namespace Logi
                 s += projekt.pesel + ",";
                 s += projekt.technologia + ",";
                 s += projekt.wartosc_zamowienia + ",";
-                s += projekt.data_zamowienia.ToString("yyyyMMddHHmmssffff") + ",";
-                s += projekt.data_zakonczenia.ToString("yyyyMMddHHmmssffff") + ",";
+                s += projekt.data_zamowienia.Year + "-" + projekt.data_zamowienia.Month + "-" + projekt.data_zamowienia.Day + ",";
+                s += projekt.data_zakonczenia.Year + "-" + projekt.data_zakonczenia.Month + "-" + projekt.data_zakonczenia.Day + ",";
                 s += projekt.opis + Environment.NewLine;
             }
             return s;
