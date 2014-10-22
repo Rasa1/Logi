@@ -108,6 +108,22 @@ namespace Logi
             }
         }
 
+        public string ToString(List<Worker> workers)
+        {
+            string s="";
+            foreach (Worker worker in workers)
+            {
+                s += worker.pesel + ",";
+                s += worker.nazwisko + ",";
+                s += worker.imie + ",";
+                s += worker.stanowisko + ",";
+                s += worker.etat.ToString() + ",";
+                s += worker.pensja.ToString();
+                s += Environment.NewLine;
+            }
+            return s;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
