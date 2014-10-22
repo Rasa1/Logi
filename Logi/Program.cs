@@ -13,6 +13,7 @@ namespace Logi
             List<List<Worker>> teams = new List<List<Worker>>();
             List<Worker> workers = new List<Worker>();
             List<Wyplaty> wyplaty = new List<Wyplaty>();
+            List<Entry> logi = new List<Entry>();
             
             int ilosc=Convert.ToInt32(Console.ReadLine());
             
@@ -22,6 +23,7 @@ namespace Logi
            
 
         }
+
         
         static void zespoly(List<Worker> workers, List<List<Worker>> teams)
         {
