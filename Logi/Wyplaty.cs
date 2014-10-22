@@ -18,19 +18,36 @@ namespace Logi
         public string Pesel;
         public int podatek;
 
-        public Wyplaty(int godziny, int premia, int miesiac,int rok,
+        public Wyplaty(int godziny, int premia, int miesiac, int rok,
                         int wyplata, int wolne, int urlop, string Pesel, int podatek)
         {
             this.godziny = godziny;
-             this.premia=premia;
-             this.miesiac=miesiac;
-             this.rok = rok;
-             this.wyplata=wyplata;
-             this.wolne=wolne;
-             this.urlop=urlop;
-             this.Pesel=Pesel;
-             this.podatek=podatek;
+            this.premia = premia;
+            this.miesiac = miesiac;
+            this.rok = rok;
+            this.wyplata = wyplata;
+            this.wolne = wolne;
+            this.urlop = urlop;
+            this.Pesel = Pesel;
+            this.podatek = podatek;
         }
-
+        public string ToString(List<Wyplaty> wyplaty)
+        {
+            string s = "";
+            foreach (Wyplaty wyplata in wyplaty)
+            {
+                s += wyplata.Pesel + ",";
+                s += wyplata.miesiac + ",";
+                s += wyplata.rok + ",";
+                s += wyplata.godziny + ",";
+                s += wyplata.premia + ",";
+                s += wyplata.wyplata + ",";
+                s += wyplata.podatek + ",";
+                s += wyplata.wolne + ",";
+                s += wyplata.urlop;
+                s += Environment.NewLine;
+            }
+            return s;
+        }
     }
 }
